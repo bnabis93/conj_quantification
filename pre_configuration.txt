@@ -1,0 +1,14 @@
+[setting]
+mode = fixed_conj
+size_mode = resize
+resize_constant = 0.5
+
+[path]
+save_path = ./hdf5_datasets_training_testing/figure5/
+
+original = ./data/figure5_result/conj_hrf/train/image/
+ground = ./data/figure5_result/conj_hrf/train/ground_truth/
+
+
+
+mask = ./data/HRF/mask/

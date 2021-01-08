@@ -1,0 +1,68 @@
+[data paths]
+#Training data path (img / g.t.)
+
+#conj_path_img =  ./data/conj_train/retina_conj/hrf_conj_train/
+#conj_path_ground = ./data/conj_train/retina_conj/hrf_conj_gt/
+
+conj_path_img =  ./data/conj_train/HRF_train/images/
+conj_path_ground = ./data/conj_train/HRF_train/manual1/
+
+
+[test data path]
+#conj_test_data = ./data/conj_train/test_data/
+#conj_test_data = ./data/20_01_31_video/03_video/
+#conj_test_data = ./data/20_04_16_gHos/2208_1848/2_imgs/sub_1_70_reg/
+#conj_test_data = ./data/catholic_conj_data/ca_06_11_test/hw/normal_reg/
+                       
+[experiment name]
+#save folder
+name = 201130/14_jmh/
+#name =  figure5/figure5_aug400000_batch16_lr_conjHrf/
+#name =  conjunctival_result/D20_05_01_T01_R0_5/
+
+[data attributes]
+#Dimensions of the patches extracted from the full images 48 48
+patch_height = 64
+patch_width = 64
+
+
+[fine tuning]
+fine_tuning = False
+pretrain path = ./result/figure5/figure5_aug400000_batch16_lr_conjHrf/
+#pretrain path = ./result/Retina_Result/D20_05_01_T01_R0_5/
+
+#pretrained_dir =D20_05_01_T01_R0_5
+
+
+[training settings]
+#number of total patches:
+num_subimgs = 50000
+
+#Number of training epochs
+num_epochs = 150
+batch_size = 64
+
+
+[testing settings]
+#Choose the model to test: best==epoch with min loss, last==last epoch 
+# mode == conj / retina
+mode = retina
+# conj
+#experiment_target =D20_05_01_T01_R0_5
+# retina, pretrain dir
+experiment_target = figure5_aug400000_batch16_lr_conjHrf
+best_last = best
+
+#number of full images for the test (max 20, DRIVE datasets)
+full_images_to_test = 20
+
+#How many original-groundTruth-prediction images are visualized in each image
+num_group_visual = 1
+
+#Compute average in the prediction, improve results but require more patches to be predicted
+average_mode = True
+#Only if average_mode==True. Stride for patch extraction, lower value require more patches to be predicted
+stride_height = 30
+stride_width = 30
+#if running with nohup
+nohup = False
